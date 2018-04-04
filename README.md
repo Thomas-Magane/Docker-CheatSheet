@@ -2,8 +2,18 @@
 An ultimate guide for Docker
 
 ### Listing Commands
-  Build an image from the Dockerfile in the current directory and tag the image
+* List all images that are locally stored with the Docker engine
 
 ```
-docker build -t myapp:latest .
+docker images
+```
+* List all the running containers
+
+```
+docker ps
+```
+* List all the networks
+
+```
+docker network ls
 ```
