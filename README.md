@@ -1,5 +1,5 @@
 # Docker CheatSheet <img src="https://github.com/vishnusudarsan/Docker-CheatSheet/blob/master/docker.png" width="50px"/>
-An ultimate guide for Docker commands
+An ultimate guide for Docker with extremely useful docker commands.
 
 <img src="https://github.com/vishnusudarsan/Docker-CheatSheet/blob/master/docker-architecture.png"/>
 
