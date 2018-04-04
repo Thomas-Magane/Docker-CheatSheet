@@ -30,6 +30,13 @@ Delete an image from the local image store
 docker rmi myapp:latest
 ```
 Delete all running and stopped containers 
+
 ```
 docker rm -f $(docker ps -aq)
+```
+### Stop Command
+Stop a running container
+
+```
+docker stop myapp
 ```
