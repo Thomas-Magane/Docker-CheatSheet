@@ -1,5 +1,5 @@
-# Docker-CheatSheet
-An ultimate guide for Docker
+# Docker CheatSheet
+An ultimate guide for Docker commands
 
 ### Listing Commands
 List all images that are locally stored with the Docker engine
@@ -39,4 +39,14 @@ Stop a running container
 
 ```
 docker stop myapp
+```
+Stop a running container through SIGKILL
+
+```
+docker kill myapp
+```
+### Excecute Commands
+Create a process inside the container
+```
+docker exec -it <conatiner_name> <process_command>
 ```
