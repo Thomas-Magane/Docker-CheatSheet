@@ -51,7 +51,11 @@ docker kill $(docker ps -q)
 Build an image from the Dockerfile in the current directory and tag the image
 
 ```
-docker build -t myapp:latest .
+docker build -t myapp:latest . 
+```
+Link the created container with other containers
+```
+docker run --name <container_name> --restart always -p <port_name>:<port_name> --link <container_name_1> --net <network_name> --link <hostname> -d <container_name>
 ```
 
 ### Listing Commands
