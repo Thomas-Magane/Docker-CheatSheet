@@ -23,10 +23,7 @@ docker --version
 docker version
 docker info
 ```
-Execute Docker image
-```
-docker run hello-world
-```
+
 List all images that are locally stored with the Docker engine
 
 ```
@@ -57,15 +54,6 @@ Download an image
 docker pull image_name
 ```
 
-### Create Commands
-Create and start container, run command
-```
-docker run -ti --name container_name image_name command
-```
-Create and start container, run command, destroy container 
-```
-docker run --rm -ti image_name command
-```
 ### Docker machine commands
 Use docker-machine to run the containers 
 Start a machine
@@ -93,11 +81,25 @@ Build an image from the Dockerfile in the current directory and tag the image
 ```
 docker build -t myapp:latest . 
 ```
+
+### Run the app
+Execute Docker image
+```
+docker run myapp
+docker run -p 3000:80 myapp
+```
+Create and start container, run command
+```
+docker run -ti --name container_name image_name command
+```
+Create and start container, run command 
+```
+docker run --rm -ti image_name command
+```
 Link the created container with other containers
 ```
 docker run --name <container_name> --restart always -p <port_name>:<port_name> --link <container_name_1> --net <network_name> --link <hostname> -d <container_name>
 ```
-
 ### Delete Commands
 Delete an image from the local image store
 
