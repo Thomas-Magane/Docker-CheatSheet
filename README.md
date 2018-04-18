@@ -126,19 +126,25 @@ docker exec -it <conatiner_name> <process_command>
 docker-compose.yml file example
 
 ```
-version: “2”
+version: "3"
 services:
-web:
- container_name: “web”
- image: java:8 # image name
- # command to run
- command: java -jar /app/app.jar
- ports: # map ports to the host
- - “4567:4567”
- volumes: # map filesystem to the host
- - ./myapp.jar:/app/app.jar
-mongo: # container name
- image: mongo # image name
+  web:
+    # replace username/repo:tag with your name and image details
+    image: username/repo:tag
+    deploy:
+      replicas: 5
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: 50M
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "80:80"
+    networks:
+      - webnet
+networks:
+  webnet:
  ```
 Create and start containers
  
