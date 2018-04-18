@@ -12,11 +12,51 @@ An ultimate guide for Docker with extremely useful docker commands.
 - **Docker compose** -   a utility to run multiple containers as a system
 
 ### Useful Commands
+List Docker CLI commands
+```
+docker
+docker container --help
+```
+Display Docker version and info
+```
+docker --version
+docker version
+docker info
+```
+Execute Docker image
+```
+docker run hello-world
+```
+List all images that are locally stored with the Docker engine
+
+```
+docker image ls
+docker images
+docker images --all  /* Show all images (default hides intermediate images) */
+docker images -a /* Show all images (default hides intermediate images) */
+```
+List Docker containers (running, all, all in quiet mode)
+```
+docker container ls
+docker container ls --all
+docker container ls -aq
+```
+List all the running containers
+
+```
+docker ps
+```
+List all the networks
+
+```
+docker network ls
+```
 Download an image
 
 ```
 docker pull image_name
 ```
+
 ### Create Commands
 Create and start container, run command
 ```
@@ -56,25 +96,6 @@ docker build -t myapp:latest .
 Link the created container with other containers
 ```
 docker run --name <container_name> --restart always -p <port_name>:<port_name> --link <container_name_1> --net <network_name> --link <hostname> -d <container_name>
-```
-
-### Listing Commands
-List all images that are locally stored with the Docker engine
-
-```
-docker images
-docker images --all  /* Show all images (default hides intermediate images) */
-docker images -a /* Show all images (default hides intermediate images) */
-```
-List all the running containers
-
-```
-docker ps
-```
-List all the networks
-
-```
-docker network ls
 ```
 
 ### Delete Commands
