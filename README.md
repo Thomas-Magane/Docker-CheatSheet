@@ -54,6 +54,12 @@ Download an image
 docker pull image_name
 ```
 
+Rename a Docker Container
+
+```
+docker rename node_v1 node_v2
+```
+
 ### Docker machine commands
 Use docker-machine to run the containers 
 Start a machine
@@ -75,6 +81,15 @@ Kill all running containers
 ```
 docker kill $(docker ps -q)
 ```
+Pause a Container
+```
+docker pause container_name
+```
+UnPaise a Paused Container
+```
+docker unpause container_name
+```
+
 ### Build Commands
 Build an image from the Dockerfile in the current directory and tag the image
 
@@ -116,7 +131,13 @@ Delete dangling images
 ```
 docker rmi $(docker images -q -f dangling=true)
  ```
- 
+
+Removing all the Containers
+
+```
+docker rm `docker ps --no-trunc -aq`
+```
+
 ### Excecute Commands
 Create a process inside the container
 ```
