@@ -143,6 +143,10 @@ Create a process inside the container
 ```
 docker exec -it <conatiner_name> <process_command>
 ```
+Example
+```
+docker exec -it <conatiner_name> bash
+```
 ### Docker compose syntax
 docker-compose.yml file example
 
