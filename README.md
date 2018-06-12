@@ -100,16 +100,17 @@ docker build -t myapp:latest .
 ### Run the app
 Execute Docker image
 ```
-docker run myapp
+docker run <container_name>:tag_name
+docker run -p <port_name>:<port_name> <container_name>
+```
+Run command will always create a container.Run command Example : 
+```
+docker run -d redis:latest
 docker run -p 3000:80 myapp
 ```
 Create and start container, run command
 ```
 docker run -ti --name container_name image_name command
-```
-Create and start container, run command 
-```
-docker run --rm -ti image_name command
 ```
 Link the created container with other containers
 ```
