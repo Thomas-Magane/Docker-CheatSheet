@@ -166,6 +166,12 @@ Example
 ```
 docker exec -it <conatiner_name> bash
 ```
+### Dockerfile
+Define the base image
+```
+FROM <image-name>:<tag>
+FROM nginx:1.11-alpine
+```
 ### Docker compose syntax
 docker-compose.yml file example
 
