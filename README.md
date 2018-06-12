@@ -167,6 +167,12 @@ Example
 docker exec -it <conatiner_name> bash
 ```
 
+### Export/Import Data Container
+```
+docker export dataContainer > dataContainer.tar
+docker import dataContainer.tar
+```
+
 ### Dockerfile
 ```
 # Use an official node runtime as a parent image - Define the base image
