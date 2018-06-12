@@ -68,7 +68,7 @@ docker-machine start machine_name
 ```
 Configure docker to use a specific machine
 ```
-eval “$(docker-machine env machine_name)”
+eval "$(docker-machine env machine_name)"
 ```
 
 ### Start/Stop Command
@@ -98,15 +98,19 @@ docker build -t myapp:latest .
 ```
 
 ### Run the app
-Execute Docker image
+Create/Start docker container and Create/Start docker contaier in a specific port
 ```
-docker run <container_name>:tag_name
+docker run <container_name>:<tag_name>
 docker run -p <port_name>:<port_name> <container_name>
+docker run -d --name <container_name> -p <port> <image_name>:<tag_name> /* Expose container but on a randomly available port */
+docker run -d --name <container_name> -p <port_name>:<port_name> <image_name>:<tag_name>
 ```
-Run command will always create a container.Run command Example : 
+Run command will always create a container. Examples of Run command based on the above order : 
 ```
 docker run -d redis:latest
 docker run -p 3000:80 myapp
+docker run -d --name redisDynamic -p 6379 redis:latest
+docker run -d --name redisHostPort -p 6379:6379 redis:latest
 ```
 Create and start container, run command
 ```
@@ -115,6 +119,20 @@ docker run -ti --name container_name image_name command
 Link the created container with other containers
 ```
 docker run --name <container_name> --restart always -p <port_name>:<port_name> --link <container_name_1> --net <network_name> --link <hostname> -d <container_name>
+```
+
+### Logging
+For more details about a running container
+```
+docker inspect <friendly-name|container-id>
+```
+Display messages the container has written to standard error or standard out.
+```
+docker logs <friendly-name|container-id>
+```
+Port information of a container
+```
+docker port <friendly-name|container-id> <port>
 ```
 ### Delete Commands
 Delete an image from the local image store
