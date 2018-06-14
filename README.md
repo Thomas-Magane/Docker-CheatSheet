@@ -204,25 +204,58 @@ CMD [ "npm", "start" ]
 docker-compose.yml file example
 
 ```
-version: "3"
+version: '3'
 services:
-  web:
-    # replace username/repo:tag with your name and image details
-    image: username/repo:tag
-    deploy:
-      replicas: 5
-      resources:
-        limits:
-          cpus: "0.1"
-          memory: 50M
-      restart_policy:
-        condition: on-failure
-    ports:
-      - "80:80"
+  app:
+    build:
+      context: ./docker/app
+      dockerfile: Dockerfile
+    image: shippingdocker/app:latest
     networks:
-      - webnet
+     - appnet
+    volumes:
+     - .:/var/www/html
+    ports:
+     - ${APP_PORT}:80
+    working_dir: /var/www/html
+  cache:
+    image: redis:alpine
+    networks:
+     - appnet
+    volumes:
+     - cachedata:/data
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: homestead
+      MYSQL_USER: homestead
+      MYSQL_PASSWORD: secret
+    ports:
+     - ${DB_PORT}:3306
+    networks:
+     - appnet
+    volumes:
+     - dbdata:/var/lib/mysql
+  node:
+    build:
+      context: ./docker/node
+      dockerfile: Dockerfile
+    image: shippingdocker/node:latest
+    networks:
+     - appnet
+    volumes:
+     - .:/opt
+    working_dir: /opt
+    command: echo hi
 networks:
-  webnet:
+  appnet:
+    driver: bridge
+volumes:
+  dbdata:
+    driver: local
+  cachedata:
+    driver: local
  ```
 Create and start containers
  
