@@ -150,11 +150,14 @@ Delete dangling images
 ```
 docker rmi $(docker images -q -f dangling=true)
  ```
-
 Removing all the Containers
 
 ```
 docker rm `docker ps --no-trunc -aq`
+```
+Delete all images
+```
+docker rmi $(docker images -a -q)
 ```
 
 ### Excecute Commands
