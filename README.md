@@ -11,10 +11,10 @@ An ultimate guide for Docker with extremely useful docker commands.
 - **Docker machine** -  a VM to run Docker containers (Linux does this natively)
 - **Docker compose** -   a utility to run multiple containers as a system
 
-### Useful Commands
-List Docker CLI commands
+### Docker Commands
+#### Listing Commands
+List all docker commands
 ```
-docker
 docker container --help
 ```
 Display Docker version and info
@@ -27,21 +27,21 @@ docker info
 List all images that are locally stored with the Docker engine
 
 ```
-docker image ls
 docker images
-docker images --all  /* Show all images (default hides intermediate images) */
 docker images -a /* Show all images (default hides intermediate images) */
+docker images -aq /* Show all images ids */
 ```
 List Docker containers (running, all, all in quiet mode)
 ```
 docker container ls
-docker container ls --all
-docker container ls -aq
+docker container ls --all /* Show all container (default hides intermediate containers)*/
+docker container ls -aq /* Show all container ids */
 ```
-List all the running containers
+List all containers
 
 ```
-docker ps
+docker ps /* Show all running containers */
+docker ps -a /* Show all containers */
 ```
 List all the networks
 
