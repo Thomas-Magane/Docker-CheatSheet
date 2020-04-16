@@ -15,19 +15,38 @@ An ultimate guide for Docker with extremely useful docker commands.
 #### Listing Commands
 List all docker commands
 ```
-docker container --help
+docker --help
 ```
-Display Docker version and info
+Display Docker version
 ```
-docker --version
-docker version
-docker info
+docker --version /* Show the Docker version information */
+docker -v /* Show the Docker version information */
 ```
+Display system-wide information
+```
+Usage: docker info [OPTIONS]
 
+Options:
+  -f, --format string   Format the output using the given Go template
+```
 List all images that are locally stored with the Docker engine
 
+Example: docker info
 ```
-docker images
+Usage:	docker images [OPTIONS] [REPOSITORY[:TAG]]
+
+List images
+
+Options:
+  -a, --all             Show all images (default hides intermediate images)
+      --digests         Show digests
+  -f, --filter filter   Filter output based on conditions provided
+      --format string   Pretty-print images using a Go template
+      --no-trunc        Don't truncate output
+  -q, --quiet           Only show numeric IDs
+
+Example:
+docker images /* List images */
 docker images -a /* Show all images (default hides intermediate images) */
 docker images -aq /* Show all images ids */
 ```
