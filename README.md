@@ -370,6 +370,12 @@ Create and start container, run command
 ```
 docker run -ti --name container_name image_name command
 ```
+
+Use option `--rm` to remove the container right after it stops
+```
+docker run -ti --name --rm container_name image_name command
+```
+
 Link the created container with other containers
 ```
 docker run --name <container_name> --restart always -p <port_name>:<port_name> --link <container_name_1> --net <network_name> --link <hostname> -d <container_name>
@@ -427,7 +433,14 @@ Options:
  
 docker rmi myapp:latest
 ```
-Delete all running and stopped containers 
+
+Delete all stopped containers 
+
+```
+docker rm $(docker ps -aq)
+```
+
+Delete all running and stopped containers, with the **force** option, `-f`,
 
 ```
 Usage:	docker rm [OPTIONS] CONTAINER [CONTAINER...]
@@ -570,4 +583,10 @@ Create and start containers
  
 ```
 docker-compose up
+```
+
+Stop and remove containers
+ 
+```
+docker-compose down
 ```
